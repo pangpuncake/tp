@@ -5,7 +5,7 @@ title: About Us
 
 We are a team based in the [National University of Singapore, School of Computing](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg` 
+You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
@@ -19,7 +19,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Tan Le Yang 
+### Tan Le Yang
 
 <img src="images/tanleyang.png" width="200px">
 
@@ -47,7 +47,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
-* Responsibilities: 
+* Responsibilities:
 
 ### Le Minh Giang
 
