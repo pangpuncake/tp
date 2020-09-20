@@ -4,14 +4,14 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.List;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
-
-import java.util.List;
 
 /**
  * Changes the remark of an existing person in the address book.
@@ -26,40 +26,40 @@ public class RemarkCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_REMARK + "Likes to swim.";
 
-        public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
-        public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
+    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
+    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
 
-        private final Index index;
-        private final Remark remark;
+    private final Index index;
+    private final Remark remark;
 
-        /**
-         * @param index of the person in the filtered person list to edit the remark
-         * @param remark of the person to be updated to
-         */
-        public RemarkCommand(Index index, Remark remark) {
-                requireAllNonNull(index, remark);
+    /**
+     * @param index of the person in the filtered person list to edit the remark
+     * @param remark of the person to be updated to
+     */
+    public RemarkCommand(Index index, Remark remark) {
+        requireAllNonNull(index, remark);
 
-                this.index = index;
-                this.remark = remark;
+        this.index = index;
+        this.remark = remark;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
         }
 
-        @Override
-        public boolean equals(Object other) {
-                // short circuit if same object
-                if (other == this) {
-                        return true;
-                }
-
-                // instanceof handles nulls
-                if (!(other instanceof RemarkCommand)) {
-                        return false;
-                }
-
-                // state check
-                RemarkCommand e = (RemarkCommand) other;
-                return index.equals(e.index)
-                        && remark.equals(e.remark);
+        // instanceof handles nulls
+        if (!(other instanceof RemarkCommand)) {
+            return false;
         }
+
+        // state check
+        RemarkCommand e = (RemarkCommand) other;
+        return index.equals(e.index)
+                && remark.equals(e.remark);
+    }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
