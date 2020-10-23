@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.bookmark.commons.exceptions.IllegalValueException;
 import seedu.bookmark.model.book.Note;
-import seedu.bookmark.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Note}.
@@ -38,7 +37,7 @@ class JsonAdaptedNote {
      */
     public Note toModelType() throws IllegalValueException {
         if (!Note.isValidNote(title, text)) {
-            throw new IllegalValueException(Tag.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Note.MESSAGE_CONSTRAINTS);
         }
         return new Note(title, text);
     }

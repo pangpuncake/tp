@@ -47,6 +47,10 @@ public class BookCard extends UiPart<Region> {
     protected FlowPane tags;
     @FXML
     protected ImageView bookmarkIcon;
+    @FXML
+    protected Label noteLabel;
+    @FXML
+    protected FlowPane notes;
 
     /**
      * Creates a {@code BookCard} with the given {@code Book} and index to display.
@@ -70,6 +74,7 @@ public class BookCard extends UiPart<Region> {
         name.setText(book.getName().fullName);
         genre.setText(book.getGenre().value);
         totalPages.setText(book.getTotalPages().value + " pages");
+        noteLabel.setText("Notes: No notes added");
         if (book.hasStartedReading()) {
             bookmark.setText("Bookmarked @ page " + book.getBookmark().value);
             Image image = new Image(MainApp.class.getResourceAsStream(BOOKMARK_ICON_PATH));
@@ -82,6 +87,11 @@ public class BookCard extends UiPart<Region> {
         book.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        if (book.hasNotes()) {
+            noteLabel.setText("Notes:");
+            book.getNotes()
+                    .forEach(note -> notes.getChildren().add(new Label(note.title)));
+        }
     }
 
     @Override

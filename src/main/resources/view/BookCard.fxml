@@ -38,6 +38,8 @@
           </ImageView>
         </graphic>
       </Label>
+      <Label fx:id="noteLabel" styleClass="cell_small_label" text="\$noteLabel" />
+      <FlowPane fx:id="notes" />
     </VBox>
   </GridPane>
 </HBox>

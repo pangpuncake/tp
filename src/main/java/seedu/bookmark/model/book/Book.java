@@ -170,6 +170,13 @@ public class Book {
     }
 
     /**
+     * Returns true if there is at least one note in the book.
+     */
+    public boolean hasNotes() {
+        return this.notes.size() > 0;
+    }
+
+    /**
      * Returns true if both books have the same identity and data fields.
      * This defines a stronger notion of equality between two books.
      */
@@ -217,7 +224,7 @@ public class Book {
         builder.append(" Goal: ")
                 .append(getGoal().toString())
                 .append(" Notes: ");
-        getNotes().forEach(note -> builder.append(note.title + ","));
+        getNotes().forEach(note -> builder.append("[" + note.title + "]"));
         return builder.toString();
     }
 }
